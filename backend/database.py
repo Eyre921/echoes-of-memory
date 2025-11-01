@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, ForeignKey
+from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, ForeignKey, JSON
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 from datetime import datetime
@@ -64,6 +64,29 @@ class StructuredMemory(Base):
     entity_name = Column(String)  # 实体名称
     attributes = Column(Text)     # 实体属性 (JSON格式)
     created_at = Column(DateTime, default=datetime.utcnow)
+    
+    # 关联用户
+    user = relationship("User")
+
+# 回顾报告模型
+class Review(Base):
+    __tablename__ = "reviews"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"))
+    review_type = Column(String)  # 'monthly' 或 'annual'
+    period_start = Column(DateTime)
+    period_end = Column(DateTime)
+    summary = Column(Text)  # AI生成的总结性描述
+    key_events = Column(JSON)  # 关键事件列表
+    emotion_analysis = Column(JSON)  # 情感分析数据
+    topics = Column(JSON)  # 主题标签和权重
+    statistics = Column(JSON)  # 统计数据
+    highlights = Column(JSON)  # 亮点记忆片段
+    growth_insights = Column(JSON)  # 成长洞察
+    visualization_data = Column(JSON)  # 可视化图表数据
+    generated_at = Column(DateTime, default=datetime.utcnow)
+    status = Column(String, default='draft')  # 'draft' 或 'completed'
     
     # 关联用户
     user = relationship("User")

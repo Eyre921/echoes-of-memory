@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ChatPage from './pages/ChatPage'
 import MemoriesPage from './pages/MemoriesPage'
 import MemoirPage from './pages/MemoirPage'
+import ReviewPage from './pages/ReviewPage'
 import './styles/App.css'
 
 function App() {
@@ -25,6 +26,12 @@ function App() {
             我的记忆
           </button>
           <button 
+            className={currentPage === 'review' ? 'active' : ''}
+            onClick={() => setCurrentPage('review')}
+          >
+            时光回顾
+          </button>
+          <button 
             className={currentPage === 'memoir' ? 'active' : ''}
             onClick={() => setCurrentPage('memoir')}
           >
@@ -36,6 +43,7 @@ function App() {
       <main className="app-main">
         {currentPage === 'chat' && <ChatPage />}
         {currentPage === 'memories' && <MemoriesPage />}
+        {currentPage === 'review' && <ReviewPage />}
         {currentPage === 'memoir' && <MemoirPage />}
       </main>
       

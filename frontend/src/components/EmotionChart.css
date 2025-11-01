@@ -1,0 +1,128 @@
+.emotion-chart {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.emotion-chart.empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chart-header h3 {
+  margin: 0;
+  font-size: 1.3em;
+  color: #333;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 15px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legend-item.positive .legend-dot {
+  background: #4caf50;
+}
+
+.legend-item.neutral .legend-dot {
+  background: #9e9e9e;
+}
+
+.legend-item.negative .legend-dot {
+  background: #ff9800;
+}
+
+.chart-container {
+  height: 200px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.chart-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.grid-line {
+  stroke: #ddd;
+  stroke-width: 0.3;
+  stroke-dasharray: 2, 2;
+}
+
+.grid-line-light {
+  stroke: #eee;
+  stroke-width: 0.2;
+  stroke-dasharray: 1, 1;
+}
+
+.chart-area {
+  fill: rgba(102, 126, 234, 0.1);
+}
+
+.chart-line {
+  fill: none;
+  stroke: #667eea;
+  stroke-width: 0.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart-point {
+  cursor: pointer;
+  transition: r 0.2s ease;
+}
+
+.chart-point:hover {
+  r: 2;
+}
+
+.chart-footer {
+  margin-top: 10px;
+}
+
+.date-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85em;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .chart-legend {
+    gap: 10px;
+  }
+
+  .legend-item {
+    font-size: 0.8em;
+  }
+}
