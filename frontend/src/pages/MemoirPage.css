@@ -1,0 +1,66 @@
+.memoir-page {
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.memoir-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.memoir-header h2 {
+  margin: 0;
+}
+
+.generate-button {
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.generate-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.memoir-content {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.memoir-content textarea {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Georgia', serif;
+  font-size: 16px;
+  resize: none;
+}
+
+.memoir-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.export-button {
+  background-color: #282c34;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.export-button:hover {
+  background-color: #40444f;
+}
